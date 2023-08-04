@@ -35,7 +35,7 @@ export default function Header({ user }: { user: SteamProfile }) {
             animateHeader && "py-5"
           } mx-auto items-center justify-between px-8 trasition ease-in-out duration-500`}
         >
-          <a
+          <Link
             href="/"
             className="text-xl font-bold tracking-tighter text-indigo-400 pr-8"
           >
@@ -45,7 +45,7 @@ export default function Header({ user }: { user: SteamProfile }) {
               height={100}
               alt="Picture of the author"
             />
-          </a>
+          </Link>
           <nav>
             <ul className="flex items-center justify-start">
               {menuItems?.map((item) => (
