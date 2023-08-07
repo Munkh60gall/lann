@@ -15,7 +15,8 @@ export default function test({ user }: { user: SteamProfile }) {
     >
       {user ? (
         <div>
-          <h1 className="text-3xl font-bold ">
+          <h1 className="text-3xl font-bold ">User Page</h1>
+          <h1 className="text-2xl font-bold ">
             Welcome to lann.market! {user.displayName}
           </h1>
           <div className="flex justify-center items-center">
