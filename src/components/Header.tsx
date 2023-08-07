@@ -18,11 +18,12 @@ export default function Header({ user }: { user: SteamProfile }) {
       window.removeEventListener("scroll", listener);
     };
   }, []);
-  const menuItems = [
-    user
-      ? { title: "Log Out", url: "/api/auth/logout" }
-      : { title: "Log In", url: "/api/auth/login" },
-  ];
+  // const menuItems = [
+  //   user
+  //     ? { title: "Log Out", url: "/api/auth/logout" }
+  //     : { title: "Log In", url: "/api/auth/login" },
+  // ];
+
   return (
     <header
       className={`w-full backdrop-filter backdrop-blur-lg bg-black/20 fixed z-10 trasition ease-in-out duration-500 ${
@@ -48,16 +49,35 @@ export default function Header({ user }: { user: SteamProfile }) {
           </Link>
           <nav>
             <ul className="flex items-center justify-start">
-              {menuItems?.map((item) => (
-                <li key={item?.title}>
+              {user ? (
+                <>
+                  <li>
+                    <Link
+                      href={"/api/auth/logout"}
+                      className="px-2 lg:px-6 py-6 text-md border-b-2 border-transparent hover:border-indigo-400 leading-[22px] md:px-3 text-gray-100 hover:text-indigo-500"
+                    >
+                      Log Out
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href={"/user"}
+                      className="px-2 lg:px-6 py-6 text-md border-b-2 border-transparent hover:border-indigo-400 leading-[22px] md:px-3 text-gray-100 hover:text-indigo-500"
+                    >
+                      User
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li>
                   <Link
-                    href={item?.url}
+                    href={"/api/auth/login"}
                     className="px-2 lg:px-6 py-6 text-md border-b-2 border-transparent hover:border-indigo-400 leading-[22px] md:px-3 text-gray-100 hover:text-indigo-500"
                   >
-                    {item?.title}
+                    Log In
                   </Link>
                 </li>
-              ))}
+              )}
             </ul>
           </nav>
         </div>
