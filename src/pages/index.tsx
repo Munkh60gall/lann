@@ -26,7 +26,7 @@ export default function Index({ user }: { user: SteamProfile }) {
           <br />
           <Link href={user._json.profileurl}>Jump to steam</Link>
           <br />
-          <Link href="/api/auth/logout">Log-out</Link>
+          <Link href="/api/auth/logout">Logout</Link>
         </div>
       ) : (
         <div>
