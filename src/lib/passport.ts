@@ -7,6 +7,12 @@ export interface SteamProfile {
   _json: {
     avatarfull: string;
     profileurl: string;
+    communityvisibilitystate: number;
+    personaname: string;
+    personastate: number;
+    personastateflags: number;
+    primaryclanid: number;
+    profilestate: number;
   };
   displayName: string;
   id: string;
@@ -33,12 +39,12 @@ passport.deserializeUser(function (obj: SteamProfile, done) {
 passport.use(
   new SteamStrategy(
     {
-      // returnURL: `${process.env.DOMAIN}/api/auth/return`,
-      // realm: `${process.env.DOMAIN}`,
-      // apiKey: `${process.env.STEAM_API_KEY}`,
-      returnURL: `https://lann-test.netlify.app/api/auth/return`,
-      realm: `https://lann-test.netlify.app/`,
-      apiKey: `F3051B7C4B5A0FA2D4AC2C6E19956E78`,
+      returnURL: `${process.env.DOMAIN}/api/auth/return`,
+      realm: `${process.env.DOMAIN}`,
+      apiKey: `${process.env.STEAM_API_KEY}`,
+      // returnURL: `https://lann-test.netlify.app/api/auth/return`,
+      // realm: `https://lann-test.netlify.app/`,
+      // apiKey: `F3051B7C4B5A0FA2D4AC2C6E19956E78`,
     },
     (
       _: string,
